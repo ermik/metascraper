@@ -15,7 +15,7 @@ func Scrape(url string) (*Page, error) {
 		SchemaReader: &SchemaReader{},
 	}
 	// Unlike the other TokenReaders, the PageReader must manipulate its parent.
-	p.PageReader = &PageReader{page: p}
+	p.PageReader = &PageReader{Page: p}
 	resp, err := http.Get(url)
 	if err != nil {
 		return p, err
